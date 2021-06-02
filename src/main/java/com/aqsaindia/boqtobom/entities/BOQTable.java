@@ -28,7 +28,7 @@ public class BOQTable {
 	@Id
 	private int id;
 	@Column
-	private int BOQId;
+	private String BOQId;
 	@OneToOne
 	private MachineMaster machine;
 	@Column

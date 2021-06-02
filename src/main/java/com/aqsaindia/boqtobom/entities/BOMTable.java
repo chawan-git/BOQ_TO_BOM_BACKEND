@@ -28,7 +28,7 @@ public class BOMTable {
 	@Id
 	private int id;
 	@Column
-	private int BOMId;
+	private String BOMId;
 	@OneToOne
 	private BOQTable BOQ;
 	@OneToOne

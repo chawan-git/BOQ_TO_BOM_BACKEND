@@ -30,7 +30,7 @@ public class ItemMaster {
 	private int id;
 	@Column
 	@NotNull
-	private int itemId;
+	private String itemId;
 	@Column
 	@NotNull
 	private String itemName;
