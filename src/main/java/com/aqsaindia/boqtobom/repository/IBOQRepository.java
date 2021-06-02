@@ -16,7 +16,7 @@ import com.aqsaindia.boqtobom.entities.BOQTable;
 @Repository
 public interface IBOQRepository extends JpaRepository<BOQTable, Integer> {
 
-	@Query("SELECT boq FROM BOQTable boq WHERE boq.BOQID = boqId")
-	public BOQTable findByBOQId(String boqId);
+	@Query("SELECT BOQ FROM BOQTable BOQ WHERE BOQ.BOQId = ?1")
+	public BOQTable findByBOQId(String BOQId);
 
 }

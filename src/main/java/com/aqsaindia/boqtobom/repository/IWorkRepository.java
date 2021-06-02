@@ -14,7 +14,7 @@ import com.aqsaindia.boqtobom.entities.WorkMaster;
 @Repository
 public interface IWorkRepository extends JpaRepository<WorkMaster, Integer> {
 
-	@Query("SELECT workmaster FROM  WorkMaster work WHERE work.WorkName = ?1")
-	public WorkMaster findByWorkName(String WorkName);
+	@Query("SELECT work FROM WorkMaster work WHERE work.workName = ?1")
+	public WorkMaster findByWorkName(String workName);
 
 }
