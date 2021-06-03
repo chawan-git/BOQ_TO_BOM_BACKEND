@@ -1,3 +1,6 @@
+/**
+ * @author Ashutosh Rao Chawan & Suggala Manasvi 
+ */
 package com.aqsaindia.boqtobom.service;
 
 import java.util.List;
@@ -17,15 +20,15 @@ public class SubWorkService {
 		return subWorkRepository.save(subWork);
 	}
 
-	public SubWorkMaster findById(int id) {
+	public SubWorkMaster findSubWorkById(int id) {
 		return subWorkRepository.findById(id).get();
 	}
 
-	public SubWorkMaster findBySubWorkName(String subWorkName) {
+	public SubWorkMaster findSubWorkByName(String subWorkName) {
 		return subWorkRepository.findBySubWorkName(subWorkName);
 	}
 
-	public List<SubWorkMaster> findAllItems() {
+	public List<SubWorkMaster> findAllSubWork() {
 		return subWorkRepository.findAll();
 	}
 

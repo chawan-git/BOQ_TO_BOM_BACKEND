@@ -25,11 +25,11 @@ public class MachineService {
 		return machineRepository.save(machine);
 	}
 	
-	public MachineMaster findById(int id) {
+	public MachineMaster findMachineById(int id) {
 		return machineRepository.findById(id).get();
 	}
 	
-	public MachineMaster findByMachineName(String machineName) {
+	public MachineMaster findMachineByName(String machineName) {
 		return machineRepository.findByMachineName(machineName);
 	}
 	

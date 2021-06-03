@@ -21,7 +21,7 @@ public class TemplateService {
 	@Autowired
 	private ITemplateRepository templateRepository;
 	
-	public TemplateTable insertTable(TemplateTable template) {
+	public TemplateTable insertTemplate(TemplateTable template) {
 		return templateRepository.save(template);
 	}
 	

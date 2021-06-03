@@ -25,11 +25,11 @@ public class UnitService {
 		return unitRepository.save(unit);
 	}
 	
-	public UnitMaster findById(int id) {
+	public UnitMaster findUnitById(int id) {
 		return unitRepository.findById(id).get();
 	}
 	
-	public UnitMaster findByUnitName(String unitName) {
+	public UnitMaster findUnitByName(String unitName) {
 		return unitRepository.findByUnitName(unitName);
 	}
 	

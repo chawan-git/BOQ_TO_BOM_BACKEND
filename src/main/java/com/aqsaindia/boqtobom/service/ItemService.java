@@ -1,3 +1,6 @@
+/**
+ * @author Ashutosh Rao Chawan & Suggala Manasvi 
+ */
 package com.aqsaindia.boqtobom.service;
 
 import java.util.List;
@@ -18,11 +21,11 @@ public class ItemService {
 		return itemRepository.save(item);
 	}
 
-	public ItemMaster findById(int id) {
+	public ItemMaster findItemById(int id) {
 		return itemRepository.findById(id).get();
 	}
 
-	public ItemMaster findByItemName(String itemName) {
+	public ItemMaster findItemByName(String itemName) {
 		return itemRepository.findByItemName(itemName);
 	}
 

@@ -12,21 +12,21 @@ import com.aqsaindia.boqtobom.repository.IWorkRepository;
 public class WorkService {
 
 	@Autowired
-	 private IWorkRepository workRepository;
+	private IWorkRepository workRepository;
 
 	public WorkMaster insertWork(WorkMaster work) {
 		return workRepository.save(work);
 	}
 
-	public WorkMaster findById(int id) {
+	public WorkMaster findWorkById(int id) {
 		return workRepository.findById(id).get();
 	}
 
-	public WorkMaster findByWorkName(String workName) {
+	public WorkMaster findWorkByName(String workName) {
 		return workRepository.findByWorkName(workName);
 	}
 
-	public List<WorkMaster> findAllItems() {
+	public List<WorkMaster> findAllWork() {
 		return workRepository.findAll();
 	}
 
@@ -49,8 +49,6 @@ public class WorkService {
 	public WorkMaster deleteWorkPermanently(WorkMaster work) {
 		workRepository.delete(work);
 		return work;
-		
+
 	}
 }
-
-
