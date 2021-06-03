@@ -17,7 +17,7 @@ public interface IItemRepository extends JpaRepository<ItemMaster, Integer> {
 	@Query("SELECT item from ItemMaster item WHERE item.itemId = ?1")
 	public ItemMaster findByItemId(String itemId);
 
-	@Query("SELECT item FROM  ItemMaster item WHERE item.itemName = ?1")
+	@Query("SELECT item FROM ItemMaster item WHERE item.itemName = ?1")
 	public ItemMaster findByItemName(String itemName);
 
 }

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,14 +37,18 @@ public class TemplateTable {
 	@OneToOne
 	private ItemMaster item;
 	@Column
+	@NotNull
 	private int qty;
 	@OneToOne
 	private UnitMaster unit;
 	@Column
+	@NotNull
 	private Double costPrice;
 	@Column
+	@NotNull
 	private Double amount;
 	@Column
+	@NotNull
 	private int del;
 
 }

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,7 @@ public class BOMTable {
 	@Id
 	private int id;
 	@Column
+	@NotNull
 	private String BOMId;
 	@OneToOne
 	private BOQTable BOQ;
@@ -40,14 +43,18 @@ public class BOMTable {
 	@OneToOne
 	private ItemMaster item;
 	@Column
+	@NotNull
 	private int qty;
 	@OneToOne
 	private UnitMaster unit;
 	@Column
+	@NotNull
 	private Double rate;
 	@Column
+	@NotNull
 	private Double amount;
 	@Column
+	@NotNull
 	private int del;
 
 }

@@ -23,7 +23,7 @@ import com.aqsaindia.boqtobom.service.SubWorkService;
 
 @RestController
 @CrossOrigin(origins = { "http://localhost:3000", "https://boqtobom.aqsaindia.com" })
-@RequestMapping("/api/v1/machine")
+@RequestMapping("/api/v1/subWork")
 
 public class SubWorkController {
 

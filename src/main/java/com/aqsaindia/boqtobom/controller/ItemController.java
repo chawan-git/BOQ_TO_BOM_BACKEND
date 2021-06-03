@@ -23,8 +23,7 @@ import com.aqsaindia.boqtobom.service.ItemService;
 
 @RestController
 @CrossOrigin(origins = { "http://localhost:3000", "https://boqtobom.aqsaindia.com" })
-@RequestMapping("/api/v1/machine")
-
+@RequestMapping("/api/v1/item")
 public class ItemController {
 
 	@Autowired
