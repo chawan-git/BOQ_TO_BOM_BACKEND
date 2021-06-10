@@ -83,4 +83,10 @@ public class BOMController {
 		return responseEntity;
 	}
 	
+	@PostMapping(path = "boqToBom/{boqId}")
+	public ResponseEntity<String> boqToBom(@PathVariable String boqId) {
+		String bomId = bomService.boqToBom(boqId);
+		ResponseEntity<String> responseEntity = new ResponseEntity<String>(bomId,HttpStatus.OK);
+		return responseEntity;
+	}
 }

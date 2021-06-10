@@ -8,7 +8,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.aqsaindia.boqtobom.entities.MachineMaster;
+import com.aqsaindia.boqtobom.entities.SubWorkMaster;
 import com.aqsaindia.boqtobom.entities.TemplateTable;
+import com.aqsaindia.boqtobom.entities.WorkMaster;
 import com.aqsaindia.boqtobom.repository.ITemplateRepository;
 
 /**
@@ -66,5 +69,9 @@ public class TemplateService {
 	public TemplateTable deleteTemplatePermanently(TemplateTable template) {
 		templateRepository.delete(template);
 		return template;
+	}
+	
+	public List<TemplateTable> findTemplateByBOQ(MachineMaster machine, WorkMaster work, SubWorkMaster subWork) {
+		return templateRepository.findTemplateByBOQ(machine, work, subWork);
 	}
 }

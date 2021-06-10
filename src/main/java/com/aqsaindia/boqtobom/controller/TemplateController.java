@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aqsaindia.boqtobom.entities.MachineMaster;
+import com.aqsaindia.boqtobom.entities.SubWorkMaster;
 import com.aqsaindia.boqtobom.entities.TemplateTable;
+import com.aqsaindia.boqtobom.entities.WorkMaster;
 import com.aqsaindia.boqtobom.service.TemplateService;
 
 /**
@@ -26,7 +29,7 @@ import com.aqsaindia.boqtobom.service.TemplateService;
  *
  */
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000","https://templatetobom.aqsaindia.com"})
+@CrossOrigin(origins = {"http://localhost:3000","https://boqtobom.aqsaindia.com"})
 @RequestMapping("/api/v1/template")
 public class TemplateController {
 	
@@ -75,4 +78,10 @@ public class TemplateController {
 		return responseEntity;
 	}
 	
+	@GetMapping(path = "findTemplateByBOQ")
+	public ResponseEntity<List<TemplateTable>> findTemplateByBOQ(@RequestBody MachineMaster machine, @RequestBody WorkMaster work, @RequestBody SubWorkMaster subwork) {
+		List<TemplateTable> templates = templateService.findTemplateByBOQ(machine, work, subwork);
+		ResponseEntity<List<TemplateTable>> responseEntity = new ResponseEntity<List<TemplateTable>>(templates,HttpStatus.OK);
+		return responseEntity;
+	}
 }

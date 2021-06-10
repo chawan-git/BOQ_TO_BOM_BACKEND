@@ -9,13 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aqsaindia.boqtobom.entities.BOMTable;
+import com.aqsaindia.boqtobom.entities.BOQTable;
+import com.aqsaindia.boqtobom.entities.TemplateTable;
 import com.aqsaindia.boqtobom.repository.IBOMRepository;
+import com.aqsaindia.boqtobom.repository.IBOQRepository;
+import com.aqsaindia.boqtobom.repository.ITemplateRepository;
 
 @Service
 public class BOMService {
 
 	@Autowired
 	private IBOMRepository bomRepository;
+	
+	@Autowired
+	private IBOQRepository boqRepository;
+	
+	@Autowired
+	private ITemplateRepository templateRepository;
 
 	public BOMTable insertBOM(BOMTable bom) {
 		return bomRepository.save(bom);
@@ -66,6 +76,43 @@ public class BOMService {
 	public BOMTable deleteBOMPermanently(BOMTable bom) {
 		bomRepository.delete(bom);
 		return bom;
+	}
+	
+	public String boqToBom(String boqId) {
+		int flag = 0;
+		List<BOQTable> boqResult = boqRepository.findByBOQId(boqId);
+		for(int i=0; i<boqResult.size(); i++) {
+			List<TemplateTable> templateResult = templateRepository.findTemplateByBOQ(boqResult.get(i).getMachine(),boqResult.get(i).getWork(),boqResult.get(i).getSubWork());
+			for(int j=0; j<templateResult.size(); j++) {
+				BOMTable bom = new BOMTable();
+				bom.setBOMId("BOM - "+boqId);
+				bom.setBOQ(boqResult.get(i));
+				bom.setMachine(templateResult.get(j).getMachine());
+				bom.setWork(templateResult.get(j).getWork());
+				bom.setSubWork(templateResult.get(j).getSubWork());
+				bom.setItem(templateResult.get(j).getItem());
+				bom.setQty(boqResult.get(i).getQty() * templateResult.get(j).getQty());
+				bom.setUnit(templateResult.get(j).getUnit());
+				bom.setRate(templateResult.get(j).getCostPrice());
+				bom.setAmount(boqResult.get(i).getQty() * templateResult.get(j).getQty() * templateResult.get(j).getCostPrice());
+				bom.setDel(0);
+				if(bomRepository.save(bom) != null) {
+					flag = 0;
+				}
+				else {
+					flag = 1;
+					break;
+				}
+				
+			}
+		}
+		
+		if(flag == 1) {
+			return "false";
+		}
+		else {
+			return "BOM - "+boqId;
+		}
 	}
 
 }

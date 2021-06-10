@@ -29,7 +29,7 @@ public class BOQService {
 		return boqRepository.findById(id).get();
 	}
 	
-	public BOQTable findBOQByBOQId(String BOQId) {
+	public List<BOQTable> findBOQByBOQId(String BOQId) {
 		return boqRepository.findByBOQId(BOQId);
 	}
 	
@@ -41,6 +41,7 @@ public class BOQService {
 		BOQTable boq1 = boqRepository.findById(boq.getId()).get();
 		boq1.setId(boq.getId());
 		boq1.setBOQId(boq.getBOQId());
+		boq1.setVendor(boq.getVendor());
 		boq1.setMachine(boq.getMachine());
 		boq1.setDescription(boq.getDescription());
 		boq1.setWork(boq.getWork());
@@ -57,6 +58,7 @@ public class BOQService {
 		BOQTable boq1 = boqRepository.findById(boq.getId()).get();
 		boq1.setId(boq.getId());
 		boq1.setBOQId(boq.getBOQId());
+		boq1.setVendor(boq.getVendor());
 		boq1.setMachine(boq.getMachine());
 		boq1.setDescription(boq.getDescription());
 		boq1.setWork(boq.getWork());
