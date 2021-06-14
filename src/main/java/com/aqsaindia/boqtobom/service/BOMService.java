@@ -85,7 +85,7 @@ public class BOMService {
 			List<TemplateTable> templateResult = templateRepository.findTemplateByBOQ(boqResult.get(i).getMachine(),boqResult.get(i).getWork(),boqResult.get(i).getSubWork());
 			for(int j=0; j<templateResult.size(); j++) {
 				BOMTable bom = new BOMTable();
-				bom.setBOMId("BOM - "+boqId);
+				bom.setBOMId("BOM-"+boqId);
 				bom.setBOQ(boqResult.get(i));
 				bom.setMachine(templateResult.get(j).getMachine());
 				bom.setWork(templateResult.get(j).getWork());

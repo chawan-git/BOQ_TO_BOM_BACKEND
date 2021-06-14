@@ -45,9 +45,9 @@ public class WorkController {
 		return responseEntity;
 	}
 
-	@GetMapping(path = "findWorkByName/{id}")
-	public ResponseEntity<WorkMaster> findWorkById(@PathVariable String name) {
-		WorkMaster work1 = workService.findWorkByName(name);
+	@GetMapping(path = "findWorkByName/{workName}")
+	public ResponseEntity<WorkMaster> findWorkById(@PathVariable String workName) {
+		WorkMaster work1 = workService.findWorkByName(workName);
 		ResponseEntity<WorkMaster> responseEntity = new ResponseEntity<WorkMaster>(work1, HttpStatus.OK);
 		return responseEntity;
 	}

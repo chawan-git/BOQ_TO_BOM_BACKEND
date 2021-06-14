@@ -44,9 +44,9 @@ public class SubWorkController {
 		return responseEntity;
 	}
 
-	@GetMapping(path = "findSubWorkByName/{id}")
-	public ResponseEntity<SubWorkMaster> findSubWorkById(@PathVariable String name) {
-		SubWorkMaster subwork1 = subworkService.findSubWorkByName(name);
+	@GetMapping(path = "findSubWorkByName/{subWorkName}")
+	public ResponseEntity<SubWorkMaster> findSubWorkById(@PathVariable String subWorkName) {
+		SubWorkMaster subwork1 = subworkService.findSubWorkByName(subWorkName);
 		ResponseEntity<SubWorkMaster> responseEntity = new ResponseEntity<SubWorkMaster>(subwork1, HttpStatus.OK);
 		return responseEntity;
 	}

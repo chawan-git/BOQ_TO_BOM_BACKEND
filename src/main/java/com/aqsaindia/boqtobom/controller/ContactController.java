@@ -53,7 +53,7 @@ public class ContactController {
 		return responseEntity;
 	}
 
-	@PutMapping(path = "updateMachine")
+	@PutMapping(path = "updateContact")
 	public ResponseEntity<ContactTable> updateContact(@RequestBody ContactTable contact) {
 		ContactTable contact1 = contactService.updateContact(contact);
 		ResponseEntity<ContactTable> responseEntity = new ResponseEntity<ContactTable>(contact1, HttpStatus.OK);

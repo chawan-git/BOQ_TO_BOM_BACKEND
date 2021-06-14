@@ -48,7 +48,7 @@ public class BOMController {
 		return responseEntity;
 	}
 	
-	@GetMapping(path = "findBOMByBOMId/{id}")
+	@GetMapping(path = "findBOMByBOMId/{BOMId}")
 	public ResponseEntity<BOMTable> findBOMByBOMId(@PathVariable String BOMId) {
 		BOMTable bom1 = bomService.findBOMByBOMId(BOMId);
 		ResponseEntity<BOMTable> responseEntity = new ResponseEntity<BOMTable>(bom1,HttpStatus.OK);

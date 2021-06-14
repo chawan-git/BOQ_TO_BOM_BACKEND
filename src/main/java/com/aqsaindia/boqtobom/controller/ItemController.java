@@ -43,9 +43,9 @@ public class ItemController {
 		return responseEntity;
 	}
 
-	@GetMapping(path = "findItemByName/{id}")
-	public ResponseEntity<ItemMaster> findItemById(@PathVariable String name) {
-		ItemMaster item1 = itemService.findItemByName(name);
+	@GetMapping(path = "findItemByName/{itemName}")
+	public ResponseEntity<ItemMaster> findItemById(@PathVariable String itemName) {
+		ItemMaster item1 = itemService.findItemByName(itemName);
 		ResponseEntity<ItemMaster> responseEntity = new ResponseEntity<ItemMaster>(item1, HttpStatus.OK);
 		return responseEntity;
 	}

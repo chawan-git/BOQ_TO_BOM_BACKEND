@@ -47,7 +47,7 @@ public class BOQController {
 		return responseEntity;
 	}
 	
-	@GetMapping(path = "findBOQByBOQId/{id}")
+	@GetMapping(path = "findBOQByBOQId/{BOQId}")
 	public ResponseEntity<List<BOQTable>> findBOQByBOQId(@PathVariable String BOQId) {
 		List<BOQTable> boq1 = boqService.findBOQByBOQId(BOQId);
 		ResponseEntity<List<BOQTable>> responseEntity = new ResponseEntity<List<BOQTable>>(boq1,HttpStatus.OK);
